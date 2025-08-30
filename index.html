@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #121212;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .header {
+            background: #000;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #ff5722;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .payment-info {
+            padding: 25px;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ff5722;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #ff5722;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            color: #fff;
+        }
+        
+        .details {
+            flex: 1;
+        }
+        
+        .details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #ff5722;
+        }
+        
+        .details p {
+            font-size: 16px;
+            margin: 3px 0;
+            color: #ddd;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #e64a19;
+        }
+        
+        .whatsapp-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #25D366;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 25px;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+        
+        .instructions {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #bbb;
+        }
+        
+        .instructions h3 {
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 12px;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .details p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Payment Gateway</h1>
+            <p>Lakukan pembayaran dengan transfer Dana</p>
+        </div>
+        
+        <div class="payment-info">
+            <div class="payment-method">
+                <div class="logo">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="details">
+                    <h3>DANA</h3>
+                    <p>083175050030</p>
+                    <p>a/n xinnRor</p>
+                </div>
+                <button class="copy-btn" onclick="copyNumber()">Salin</button>
+            </div>
+            
+            <a href="https://wa.me/message/N47TVBF5ONAVG1" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+            </a>
+            
+            <div class="instructions">
+                <h3>Cara Pembayaran:</h3>
+                <ol>
+                    <li>Salin nomor DANA di atas</li>
+                    <li>Buka aplikasi DANA dan transfer sesuai jumlah</li>
+                    <li>Klik tombol WhatsApp untuk konfirmasi pembayaran</li>
+                    <li>Kirim bukti transfer dan tunggu konfirmasi</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2023 Payment Gateway. Semua hak dilindungi.</p>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        Nomor DANA berhasil disalin!
+    </div>
+    
+    <script>
+        function copyNumber() {
+            const text = "083175050030";
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification();
+            });
+        }
+        
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.opacity = "1";
+            
+            setTimeout(() => {
+                notification.style.opacity = "0";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
